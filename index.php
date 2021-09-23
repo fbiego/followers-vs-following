@@ -112,14 +112,14 @@ html, body, h1, h2, h3, h4, h5 {font-family: "Open Sans", sans-serif}
 		<div class="w3-container w3-margin w3-display-container w3-round w3-border w3-theme-border wl">
 		<p>X-RateLimit Usage: <?php echo $used; ?> Used, <?php echo ($limit-$used); ?> Remaining, <?php echo $limit; ?> Total</p>
 		<div class="w3-light-grey w3-round-large">
-			<div class="w3-blue w3-round-large w3-center" style="width:<?php echo intval(($used/$limit)*100); ?>%"><?php echo intval(($used/$limit)*100); ?>%</div>
+			<div class="w3-indigo w3-round-large w3-center" style="width:<?php echo intval(($used/$limit)*100); ?>%"><?php echo intval(($used/$limit)*100); ?>%</div>
 		</div>
         <p>
 			<?php echo $message; ?>
 		</p>
 		<div class="w3-row-padding w3-margin-bottom">
     <div class="w3-quarter">
-      <div class="w3-container w3-green w3-padding-16">
+      <div class="w3-container w3-round w3-green w3-padding-16">
         <div class="w3-left"><i class="fa fa-users w3-xxxlarge"></i></div>
         <div class="w3-right">
           <h3><?php echo count($following); ?></h3>
@@ -129,7 +129,7 @@ html, body, h1, h2, h3, h4, h5 {font-family: "Open Sans", sans-serif}
       </div>
     </div>
     <div class="w3-quarter">
-      <div class="w3-container w3-blue w3-padding-16">
+      <div class="w3-container w3-round w3-blue w3-padding-16">
         <div class="w3-left"><i class="fa fa-users w3-xxxlarge"></i></div>
         <div class="w3-right">
           <h3><?php echo count($followers); ?></h3>
@@ -139,7 +139,7 @@ html, body, h1, h2, h3, h4, h5 {font-family: "Open Sans", sans-serif}
       </div>
     </div>
     <div class="w3-quarter">
-      <div class="w3-container w3-purple w3-padding-16">
+      <div class="w3-container w3-round w3-purple w3-padding-16">
         <div class="w3-left"><i class="fa fa-users w3-xxxlarge"></i></div>
         <div class="w3-right">
           <h3><?php echo count($dif1); ?></h3>
@@ -149,7 +149,7 @@ html, body, h1, h2, h3, h4, h5 {font-family: "Open Sans", sans-serif}
       </div>
     </div>
     <div class="w3-quarter">
-      <div class="w3-container w3-orange w3-text-white w3-padding-16">
+      <div class="w3-container w3-round w3-orange w3-text-white w3-padding-16">
         <div class="w3-left"><i class="fa fa-users w3-xxxlarge"></i></div>
         <div class="w3-right">
           <h3><?php echo count($dif2); ?></h3>
@@ -170,7 +170,7 @@ html, body, h1, h2, h3, h4, h5 {font-family: "Open Sans", sans-serif}
 			// echo $json;
 			foreach ($dif1 as $d)
 			{
-			    echo "<li class=\"w3-hover-blue\" onclick=\"window.open('";
+			    echo "<li class=\"w3-hover-purple\" onclick=\"window.open('";
 				echo $d['html_url'];
 				echo "', '_blank')\">";
 			    echo $d['login'];
@@ -194,7 +194,7 @@ html, body, h1, h2, h3, h4, h5 {font-family: "Open Sans", sans-serif}
 			// echo $json;
 			foreach ($dif2 as $d)
 			{
-			    echo "<li class=\"w3-hover-blue\" onclick=\"window.open('";
+			    echo "<li class=\"w3-hover-orange\" onclick=\"window.open('";
 				echo $d['html_url'];
 				echo "', '_blank')\">";
 			    echo $d['login'];
