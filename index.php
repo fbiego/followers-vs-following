@@ -130,7 +130,7 @@ html, body, h1, h2, h3, h4, h5 {font-family: "Open Sans", sans-serif}
           <h3>52</h3>
         </div>
         <div class="w3-clear"></div>
-        <h4>Messages</h4>
+        <h5>Messages</h5>
       </div>
     </div>
     <div class="w3-quarter">
@@ -140,7 +140,7 @@ html, body, h1, h2, h3, h4, h5 {font-family: "Open Sans", sans-serif}
           <h3>99</h3>
         </div>
         <div class="w3-clear"></div>
-        <h4>Views</h4>
+        <h5>Views</h5>
       </div>
     </div>
     <div class="w3-quarter">
