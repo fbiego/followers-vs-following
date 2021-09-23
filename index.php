@@ -4,7 +4,7 @@ $limit = 1;
 $used = 0;
 
 function getHeaders($curl, $header_line ){
-	$GLOBALS['message'] = $GLOBALS['message']. $header_line . "<br>";
+	//$GLOBALS['message'] = $GLOBALS['message']. $header_line . "<br>";
 	if (strpos($header_line, "X-RateLimit-Limit:") !== false){
 		$GLOBALS['limit'] = (int) preg_replace('/[^0-9]/', '', $header_line);
 	}
@@ -80,7 +80,7 @@ html, body, h1, h2, h3, h4, h5 {font-family: "Open Sans", sans-serif}
         <p><?php echo $message; ?></p>
       </div>
     <!-- Left Column -->
-    <div class="w3-col m6 w3-round">
+    <div class="w3-round w3-col" style="width:50%">
       <!-- Profile -->
       <div class="w3-container w3-margin w3-display-container w3-round w3-border w3-theme-border wl">
         <p><strong>Following</strong></p>
@@ -104,7 +104,7 @@ html, body, h1, h2, h3, h4, h5 {font-family: "Open Sans", sans-serif}
 
     <!-- End Left Column -->
     </div>
-    <div class="w3-cell w3-round">
+    <div class="w3-round w3-col" style="width:50%">
       <!-- Profile -->
 	  
 	  <div class="w3-container w3-margin w3-display-container w3-round w3-border w3-theme-border wl">
