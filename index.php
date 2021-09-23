@@ -1,6 +1,6 @@
 <?php
 $message = "";
-$limit = 1;
+$limit = 60;
 $used = 0;
 $user = "github username";
 
@@ -14,7 +14,7 @@ function getHeaders($curl, $header_line ){
 	}
 	return strlen($header_line);
 }
-function getUsers($username, $type)
+function getUsers($username, $type, $page)
 {
     $cURLConnection = curl_init();
 
@@ -37,6 +37,11 @@ function getUsers($username, $type)
 if ($_POST['user'])
 {
     $user = $_POST['user'];
+	$max = 30;
+	while($max>0){
+		
+		$max--;
+	}
     $followers = getUsers($user, "followers");
     $following = getUsers($user, "following");
 }
