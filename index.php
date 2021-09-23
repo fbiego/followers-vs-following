@@ -37,11 +37,15 @@ function getUsers($username, $type, $page)
 if ($_POST['user'])
 {
     $user = $_POST['user'];
+    $followers = array();
+    $following = array();
+    //$followers = json_decode(getUsers($user, "followers", 1), true);
+    //$following = json_decode(getUsers($user, "following", 1), true);
 	
 	//query followers
 	$z = 1;
 	while($z<=30){
-		$list = getUsers($user, "followers", $z);
+		$list = json_decode(getUsers($user, "followers", $z), true);
 		if (count($list) == 0){
 			break;
 		}
@@ -55,7 +59,7 @@ if ($_POST['user'])
 	//query following
 	$z = 1;
 	while($z<=30){
-		$list = getUsers($user, "following", $z);
+		$list = json_decode(getUsers($user, "following", $z), true);
 		if (count($list) == 0){
 			break;
 		}
@@ -68,8 +72,8 @@ if ($_POST['user'])
 	
 	$dif1 = array_diff_assoc($followers, $following);
     $dif2 = array_diff_assoc($following, $followers);
-    //$followers = getUsers($user, "followers");
-    //$following = getUsers($user, "following");
+    
+    
 }
 ?>
 
