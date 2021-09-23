@@ -90,9 +90,9 @@ html, body, h1, h2, h3, h4, h5 {font-family: "Open Sans", sans-serif}
 			// echo $json;
 			foreach ($obj as $d)
 			{
-			    echo "<li class=\"w3-hover-blue\" onclick=\"location.href='";
+			    echo "<li class=\"w3-hover-blue\" onclick=\"window.open('";
 				echo $d->html_url;
-				echo "';\">";
+				echo "', '_blank')\">";
 			    echo $d->login;
 			    echo "</li>";
 			}
@@ -115,9 +115,9 @@ html, body, h1, h2, h3, h4, h5 {font-family: "Open Sans", sans-serif}
 			// echo $json;
 			foreach ($obj as $d)
 			{
-			    echo "<li class=\"w3-hover-blue\" onclick=\"location.href='";
+			    echo "<li class=\"w3-hover-blue\" onclick=\"window.open('";
 				echo $d->html_url;
-				echo "';\">";
+				echo "', '_blank')\">";
 			    echo $d->login;
 			    echo "</li>";
 			}
