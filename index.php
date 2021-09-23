@@ -115,8 +115,8 @@ html, body, h1, h2, h3, h4, h5 {font-family: "Open Sans", sans-serif}
 			<?php echo $message; ?><br>
 			Following: <?php echo count($following); ?><br>
 			Followers: <?php echo count($followers); ?><br>
-			Not following back: <?php echo count($dif1); ?><br>
-			Not following you: <?php echo count($dif2); ?><br>			
+			Users you have not followed back: <?php echo count($dif1); ?><br>
+			Users not following you: <?php echo count($dif2); ?><br>			
 		
 		</p>
       </div>
@@ -124,17 +124,16 @@ html, body, h1, h2, h3, h4, h5 {font-family: "Open Sans", sans-serif}
     <div class="w3-round w3-col" style="width:50%">
       <!-- Profile -->
       <div class="w3-container w3-margin w3-display-container w3-round w3-border w3-theme-border wl">
-        <p><strong>Following</strong></p>
+        <p><strong>Users you have not followed back</strong></p>
 		<ul class="w3-ul w3-hoverable w3-border w3-round">
 		<?php
-			$obj = json_decode($following);
 			// echo $json;
-			foreach ($obj as $d)
+			foreach ($dif1 as $d)
 			{
 			    echo "<li class=\"w3-hover-blue\" onclick=\"window.open('";
-				echo $d->html_url;
+				echo $d['html_url'];
 				echo "', '_blank')\">";
-			    echo $d->login;
+			    echo $d['login'];
 			    echo "</li>";
 			}
 		?>
@@ -149,17 +148,16 @@ html, body, h1, h2, h3, h4, h5 {font-family: "Open Sans", sans-serif}
       <!-- Profile -->
 	  
 	  <div class="w3-container w3-margin w3-display-container w3-round w3-border w3-theme-border wl">
-        <p><strong>Followers</strong></p>
+        <p><strong>Users not following you</strong></p>
 		<ul class="w3-ul w3-hoverable w3-border w3-round">
 		    <?php
-			$obj = json_decode($followers);
 			// echo $json;
-			foreach ($obj as $d)
+			foreach ($dif2 as $d)
 			{
 			    echo "<li class=\"w3-hover-blue\" onclick=\"window.open('";
-				echo $d->html_url;
+				echo $d['html_url'];
 				echo "', '_blank')\">";
-			    echo $d->login;
+			    echo $d['login'];
 			    echo "</li>";
 			}
 		?>
