@@ -1,8 +1,16 @@
 <?php
 $message = "";
+$limit = "";
+$rem = "";
 
 function getHeaders($curl, $header_line ){
-	$GLOBALS['message'] = $GLOBALS['message']. $header_line;
+	$GLOBALS['message'] = $GLOBALS['message']. $header_line . "<br>";
+	if (strpos($line, "X-RateLimit-Limit: ") !== false){
+		$GLOBALS['limit'] = $header_line;
+	}
+	if (strpos($line, "X-RateLimit-Remaining: ") !== false){
+		$GLOBALS['rem'] = $header_line;
+	}
 	return strlen($header_line);
 }
 function getUsers($username, $type)
