@@ -37,13 +37,27 @@ function getUsers($username, $type, $page)
 if ($_POST['user'])
 {
     $user = $_POST['user'];
-	$max = 1;
-	while($max<=30){
-		
-		$max++;
+	$z = 1;
+	while($z<=30){
+		$list = getUsers($user, "followers", $z);
+		if (count($list) == 0){
+			break;
+		}
+		$followers = array_merge($list, $followers);		
+		$z++;
 	}
-    $followers = getUsers($user, "followers");
-    $following = getUsers($user, "following");
+	
+	$z = 1;
+	while($z<=30){
+		$list = getUsers($user, "following", $z);
+		if (count($list) == 0){
+			break;
+		}
+		$following = array_merge($list, $following);		
+		$z++;
+	}
+    //$followers = getUsers($user, "followers");
+    //$following = getUsers($user, "following");
 }
 ?>
 
