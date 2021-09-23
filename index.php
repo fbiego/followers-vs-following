@@ -20,6 +20,8 @@ function getUsers($username, $type)
     return $json;
 }
 
+$user = "github username";
+
 if ($_POST['user'])
 {
     $user = $_POST['user'];
@@ -47,7 +49,7 @@ html, body, h1, h2, h3, h4, h5 {font-family: "Open Sans", sans-serif}
 <form method="POST">
  <div class="w3-bar w3-blue w3-left-align w3-large">
  
-  <div class="w3-bar-item w3-padding"><input class="w3-input w3-round" type="text" placeholder="github username" required></div>
+  <div class="w3-bar-item w3-padding"><input class="w3-input w3-round" name="user" type="text" placeholder="<?php echo $user; ?>" required></div>
 <div class="w3-bar-item w3-padding"> <button class="w3-btn w3-blue"><i class="fa fa-search w3-margin-right"></i>Search</button></div>
  </div>
  </form>
