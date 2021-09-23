@@ -2,6 +2,7 @@
 $message = "";
 $limit = 1;
 $used = 0;
+$user = "github username";
 
 function getHeaders($curl, $header_line ){
 	//$GLOBALS['message'] = $GLOBALS['message']. $header_line . "<br>";
@@ -32,8 +33,6 @@ function getUsers($username, $type)
     
     return $json;
 }
-
-$user = "github username";
 
 if ($_POST['user'])
 {
