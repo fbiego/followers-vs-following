@@ -171,7 +171,7 @@
 							</div>
 						</div>
 						<div class="w3-quarter">
-							<div class="w3-container w3-round w3-orange w3-text-white w3-padding-16">
+							<div class="w3-container w3-round w3-teal w3-text-white w3-padding-16">
 								<div class="w3-left"><i class="fa fa-users w3-xxxlarge"></i></div>
 								<div class="w3-right">
 									<h3><?php echo count($dif2); ?></h3>
@@ -185,13 +185,13 @@
 						<div class="w3-col w3-container w3-green" style="width:<?php echo $a; ?>%">
 							<p><?php echo intval($a); ?></p>
 						</div>
-						<div class="w3-col w3-container w3-blue" style="width:<?php echo $v; ?>%">
+						<div class="w3-col w3-container w3-blue" style="width:<?php echo $b; ?>%">
 							<p><?php echo intval($b); ?></p>
 						</div>
 						<div class="w3-col w3-container w3-purple" style="width:<?php echo $c; ?>%">
 							<p><?php echo intval($c); ?></p>
 						</div>
-						<div class="w3-col w3-container w3-orange" style="width:<?php echo $d; ?>%">
+						<div class="w3-col w3-container w3-teal" style="width:<?php echo $d; ?>%">
 							<p><?php echo intval($d); ?></p>
 						</div>
 					</div>
@@ -205,7 +205,7 @@
 							<?php
 								foreach ($dif1 as $d)
 								{
-								    echo "<li class=\"w3-hover-orange\" onclick=\"window.open('";
+								    echo "<li class=\"w3-hover-teal\" onclick=\"window.open('";
 								    echo $d['html_url'];
 								    echo "', '_blank')\">";
 								    echo $d['login'];
