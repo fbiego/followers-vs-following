@@ -150,7 +150,7 @@ html, body, h1, h2, h3, h4, h5 {font-family: "Open Sans", sans-serif}
           <h3>23</h3>
         </div>
         <div class="w3-clear"></div>
-        <h4>Shares</h4>
+        <h5>Shares</h5>
       </div>
     </div>
     <div class="w3-quarter">
@@ -160,7 +160,7 @@ html, body, h1, h2, h3, h4, h5 {font-family: "Open Sans", sans-serif}
           <h3>50</h3>
         </div>
         <div class="w3-clear"></div>
-        <h4>Users</h4>
+        <h5>Users</h5>
       </div>
     </div>
   </div>
