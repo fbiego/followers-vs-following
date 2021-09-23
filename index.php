@@ -115,12 +115,7 @@ html, body, h1, h2, h3, h4, h5 {font-family: "Open Sans", sans-serif}
 			<div class="w3-blue w3-round-large w3-center" style="width:<?php echo intval(($used/$limit)*100); ?>%"><?php echo intval(($used/$limit)*100); ?>%</div>
 		</div>
         <p>
-			<?php echo $message; ?><br>
-			Following: <?php echo count($following); ?><br>
-			Followers: <?php echo count($followers); ?><br>
-			Users you have not followed back: <?php echo count($dif1); ?><br>
-			Users not following you: <?php echo count($dif2); ?><br>			
-		
+			<?php echo $message; ?>
 		</p>
 		<div class="w3-row-padding w3-margin-bottom">
     <div class="w3-quarter">
