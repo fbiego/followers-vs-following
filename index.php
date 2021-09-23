@@ -1,4 +1,5 @@
 <?php
+$message = "";
 function getUsers($username, $type)
 {
     $cURLConnection = curl_init();
@@ -12,10 +13,9 @@ function getUsers($username, $type)
 
     $json = curl_exec($cURLConnection);
     curl_close($cURLConnection);
-    // $obj = json_decode($json);
-    // echo $json;
+    $obj = json_decode($json);
     // foreach($obj as $d){
-    //     echo $obj->message;
+    //     $GLOBALS['message'] = $obj->message;
     // }
     return $json;
 }
@@ -60,7 +60,7 @@ html, body, h1, h2, h3, h4, h5 {font-family: "Open Sans", sans-serif}
   <!-- The Grid -->
   <div class="w3-row">
 		<div class="w3-container w3-margin w3-display-container w3-round w3-border w3-theme-border wl">
-        <p></p>
+        <p><?php echo $message; ?></p>
       </div>
     <!-- Left Column -->
     <div class="w3-col m6 w3-round">
