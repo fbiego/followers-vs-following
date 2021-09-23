@@ -45,7 +45,7 @@ html, body, h1, h2, h3, h4, h5 {font-family: "Open Sans", sans-serif}
 <!-- Navbar -->
 <div class="w3-top">
  <div class="w3-bar w3-blue w3-left-align w3-large">
-  <div class="w3-bar-item w3-padding-large" ><i class="fa fa-home w3-margin-right"></i>Github Followers vs Following</div>
+  <div class="w3-bar-item w3-padding-large" ><i class="fa fa-search w3-margin-right"></i>Github Followers vs Following</div>
 
  </div>
 </div>
