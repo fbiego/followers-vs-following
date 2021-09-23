@@ -16,11 +16,10 @@ function getUsers($username, $type)
     // echo $json;
     // foreach($obj as $d){
     //     echo $obj->message;
-    //     array_push($following, $obj->message);
     // }
     return $json;
 }
-// $apiResponse - available data from the API request
+
 if ($_GET['user'])
 {
     $user = $_GET['user'];
