@@ -97,10 +97,10 @@
 		$total = $k + $l + $m + $n;
 		
 		if ($total > 0){
-			$a = ($k / $total) * 100;
-			$b = ($l / $total) * 100;
-			$c = ($m / $total) * 100;
-			$d = ($n / $total) * 100;
+			$a = intval(($k / $total) * 100);
+			$b = intval(($l / $total) * 100);
+			$c = intval(($m / $total) * 100);
+			$d = intval(($n / $total) * 100);
 		}
 	
 	}
