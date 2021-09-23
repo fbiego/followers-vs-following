@@ -4,12 +4,12 @@ $limit = 1;
 $used = 0;
 
 function getHeaders($curl, $header_line ){
-	//$GLOBALS['message'] = $GLOBALS['message']. $header_line . "<br>";
-	if (strpos($line, "X-RateLimit-Limit: ") !== false){
-		$GLOBALS['limit'] = (int) filter_var($header_line, FILTER_SANITIZE_NUMBER_INT);
+	$GLOBALS['message'] = $GLOBALS['message']. $header_line . "<br>";
+	if (strpos($line, "X-RateLimit-Limit:") !== false){
+		$GLOBALS['limit'] = (int) preg_replace('/[^0-9]/', '', $header_line);
 	}
-	if (strpos($line, "X-RateLimit-Used: ") !== false){
-		$GLOBALS['used'] = (int) filter_var($header_line, FILTER_SANITIZE_NUMBER_INT);
+	if (strpos($line, "X-RateLimit-Used:") !== false){
+		$GLOBALS['used'] = (int) preg_replace('/[^0-9]/', '', $header_line);
 	}
 	return strlen($header_line);
 }
