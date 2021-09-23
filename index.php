@@ -1,15 +1,15 @@
 <?php
 $message = "";
 $limit = 1;
-$rem = 0;
+$used = 0;
 
 function getHeaders($curl, $header_line ){
 	//$GLOBALS['message'] = $GLOBALS['message']. $header_line . "<br>";
 	if (strpos($line, "X-RateLimit-Limit: ") !== false){
 		$GLOBALS['limit'] = (int) filter_var($header_line, FILTER_SANITIZE_NUMBER_INT);
 	}
-	if (strpos($line, "X-RateLimit-Remaining: ") !== false){
-		$GLOBALS['rem'] = (int) filter_var($header_line, FILTER_SANITIZE_NUMBER_INT);
+	if (strpos($line, "X-RateLimit-Used: ") !== false){
+		$GLOBALS['used'] = (int) filter_var($header_line, FILTER_SANITIZE_NUMBER_INT);
 	}
 	return strlen($header_line);
 }
@@ -73,8 +73,9 @@ html, body, h1, h2, h3, h4, h5 {font-family: "Open Sans", sans-serif}
   <!-- The Grid -->
   <div class="w3-row">
 		<div class="w3-container w3-margin w3-display-container w3-round w3-border w3-theme-border wl">
+		<p>X-RateLimit Usage: <?php echo $used; ?> used , <?php echo ($limit-$used); ?> remaining</p>
 		<div class="w3-light-grey w3-round-large">
-			<div class="w3-blue w3-round-large w3-center" style="width:<?php echo ($rem/$limit)*100; ?>%"></div>
+			<div class="w3-blue w3-round-large w3-center" style="width:<?php echo ($used/$limit)*100; ?>%"><?php echo ($used/$limit)*100; ?>%</div>
 		</div>
         <p><?php echo $message; ?></p>
       </div>
