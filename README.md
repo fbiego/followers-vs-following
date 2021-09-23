@@ -1,10 +1,11 @@
 # followers-vs-following
  Compare your Github followers vs following users
- 
- #Demo 
- 
- http://biego.tech/github/
+
  
  This code lists the first 100 followers & following
  
  https://docs.github.com/en/rest/reference/users
+  
+ #Demo 
+ 
+ http://biego.tech/github/
