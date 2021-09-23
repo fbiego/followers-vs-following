@@ -20,9 +20,9 @@ function getUsers($username, $type)
     return $json;
 }
 
-if ($_GET['user'])
+if ($_POST['user'])
 {
-    $user = $_GET['user'];
+    $user = $_POST['user'];
     $followers = getUsers($user, "followers");
     $following = getUsers($user, "following");
 }
