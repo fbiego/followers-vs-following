@@ -4,7 +4,7 @@ $limit = "";
 $rem = "";
 
 function getHeaders($curl, $header_line ){
-	$GLOBALS['message'] = $GLOBALS['message']. $header_line . "<br>";
+	//$GLOBALS['message'] = $GLOBALS['message']. $header_line . "<br>";
 	if (strpos($line, "X-RateLimit-Limit: ") !== false){
 		$GLOBALS['limit'] = $header_line;
 	}
