@@ -97,10 +97,10 @@
 		$total = $k + $l + $m + $n;
 		
 		if ($total > 0){
-			$a = ($k / $total) * 100;
-			$b = ($l / $total) * 100;
-			$c = ($m / $total) * 100;
-			$d = ($n / $total) * 100;
+			$a = intval(($k / $total) * 100);
+			$b = intval(($l / $total) * 100);
+			$c = intval(($m / $total) * 100);
+			$d = intval(($n / $total) * 100);
 		}
 	
 	}
@@ -182,18 +182,10 @@
 						</div>
 					</div>
 					<div class="w3-row w3-round w3-margin w3-border">
-						<div class="w3-col w3-container w3-green" style="width:<?php echo $a; ?>%">
-							<p><?php echo intval($a); ?></p>
-						</div>
-						<div class="w3-col w3-container w3-blue" style="width:<?php echo $b; ?>%">
-							<p><?php echo intval($b); ?></p>
-						</div>
-						<div class="w3-col w3-container w3-purple" style="width:<?php echo $c; ?>%">
-							<p><?php echo intval($c); ?></p>
-						</div>
-						<div class="w3-col w3-container w3-teal" style="width:<?php echo $d; ?>%">
-							<p><?php echo intval($d); ?></p>
-						</div>
+						<?php if ($a > 0) { echo'<div class="w3-col w3-container w3-green" style="width:' . $a . '%"> <p> ' . $a . '</p></div>' ;}?>
+						<?php if ($b > 0) { echo'<div class="w3-col w3-container w3-blue" style="width:' . $b . '%"> <p> ' . $b . '</p></div>' ;}?>
+						<?php if ($c > 0) { echo'<div class="w3-col w3-container w3-purple" style="width:' . $c . '%"> <p> ' . $c . '</p></div>' ;}?>
+						<?php if ($d > 0) { echo'<div class="w3-col w3-container w3-teal" style="width:' . $d . '%"> <p> ' . $d . '</p></div>' ;}?>
 					</div>
 				</div>
 				<!-- Left Column -->
@@ -205,7 +197,7 @@
 							<?php
 								foreach ($dif1 as $d)
 								{
-								    echo "<li class=\"w3-hover-teal\" onclick=\"window.open('";
+								    echo "<li class=\"w3-hover-purple\" onclick=\"window.open('";
 								    echo $d['html_url'];
 								    echo "', '_blank')\">";
 								    echo $d['login'];
@@ -224,9 +216,9 @@
 						<p><strong>Users not following you</strong></p>
 						<ul class="w3-ul w3-hoverable w3-border w3-round">
 							<?php
-								foreach ($dif2 as $d)
+								foreach ($dif2 as $d)	
 								{
-								    echo "<li class=\"w3-hover-orange\" onclick=\"window.open('";
+								    echo "<li class=\"w3-hover-teal\" onclick=\"window.open('";
 								    echo $d['html_url'];
 								    echo "', '_blank')\">";
 								    echo $d['login'];
