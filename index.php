@@ -4,15 +4,18 @@ $limit = 60;
 $used = 0;
 $user = "github username";
 
-function getHeaders($curl, $header_line ){
-	//$GLOBALS['message'] = $GLOBALS['message']. $header_line . "<br>";
-	if (strpos($header_line, "X-RateLimit-Limit:") !== false){
-		$GLOBALS['limit'] = (int) preg_replace('/[^0-9]/', '', $header_line);
-	}
-	if (strpos($header_line, "X-RateLimit-Used:") !== false){
-		$GLOBALS['used'] = (int) preg_replace('/[^0-9]/', '', $header_line);
-	}
-	return strlen($header_line);
+function getHeaders($curl, $header_line)
+{
+    //$GLOBALS['message'] = $GLOBALS['message']. $header_line . "<br>";
+    if (strpos($header_line, "X-RateLimit-Limit:") !== false)
+    {
+        $GLOBALS['limit'] = (int)preg_replace('/[^0-9]/', '', $header_line);
+    }
+    if (strpos($header_line, "X-RateLimit-Used:") !== false)
+    {
+        $GLOBALS['used'] = (int)preg_replace('/[^0-9]/', '', $header_line);
+    }
+    return strlen($header_line);
 }
 function getUsers($username, $type, $page)
 {
@@ -20,7 +23,7 @@ function getUsers($username, $type, $page)
 
     curl_setopt($cURLConnection, CURLOPT_URL, 'https://api.github.com/users/' . $username . '/' . $type . '?per_page=100&page=' . $page);
     curl_setopt($cURLConnection, CURLOPT_RETURNTRANSFER, true);
-	curl_setopt($cURLConnection, CURLOPT_HEADERFUNCTION, "getHeaders");
+    curl_setopt($cURLConnection, CURLOPT_HEADERFUNCTION, "getHeaders");
     curl_setopt($cURLConnection, CURLOPT_HTTPHEADER, array(
         'Accept: application/vnd.github.v3+json',
         'User-Agent: Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.82 Mobile Safari/537.36'
@@ -29,8 +32,8 @@ function getUsers($username, $type, $page)
     $json = curl_exec($cURLConnection);
     curl_close($cURLConnection);
     $obj = json_decode($json);
-	$GLOBALS['message'] = $GLOBALS['message'].$obj['message'];
-    
+    $GLOBALS['message'] = $GLOBALS['message'] . $obj['message'];
+
     return $json;
 }
 
@@ -42,41 +45,46 @@ $dif2 = array();
 if ($_POST['user'])
 {
     $user = $_POST['user'];
-    
+
     //$followers = json_decode(getUsers($user, "followers", 1), true);
     //$following = json_decode(getUsers($user, "following", 1), true);
-	
-	//query followers
-	$z = 1;
-	while($z<=30){
-		$list = json_decode(getUsers($user, "followers", $z), true);
-		if (count($list) == 0){
-			break;
-		}
-		if ($message != ""){
-			break;
-		}
-		$followers = array_merge($list, $followers);		
-		$z++;
-	}
-	
-	//query following
-	$z = 1;
-	while($z<=30){
-		$list = json_decode(getUsers($user, "following", $z), true);
-		if (count($list) == 0){
-			break;
-		}
-		if ($message != ""){
-			break;
-		}
-		$following = array_merge($list, $following);		
-		$z++;
-	}
-	
-	$dif1 = array_diff_assoc($followers, $following);
+    //query followers
+    $z = 1;
+    while ($z <= 30)
+    {
+        $list = json_decode(getUsers($user, "followers", $z) , true);
+        if (count($list) == 0)
+        {
+            break;
+        }
+        if ($message != "")
+        {
+            break;
+        }
+        $followers = array_merge($list, $followers);
+        $z++;
+    }
+
+    //query following
+    $z = 1;
+    while ($z <= 30)
+    {
+        $list = json_decode(getUsers($user, "following", $z) , true);
+        if (count($list) == 0)
+        {
+            break;
+        }
+        if ($message != "")
+        {
+            break;
+        }
+        $following = array_merge($list, $following);
+        $z++;
+    }
+
+    $dif1 = array_diff_assoc($followers, $following);
     $dif2 = array_diff_assoc($following, $followers);
-    
+
 }
 ?>
 
@@ -110,9 +118,9 @@ html, body, h1, h2, h3, h4, h5 {font-family: "Open Sans", sans-serif}
   <!-- The Grid -->
   <div class="w3-row">
 		<div class="w3-container w3-margin w3-display-container w3-round w3-border w3-theme-border wl">
-		<p>X-RateLimit Usage: <?php echo $used; ?> Used, <?php echo ($limit-$used); ?> Remaining, <?php echo $limit; ?> Total</p>
+		<p>X-RateLimit Usage: <?php echo $used; ?> Used, <?php echo ($limit - $used); ?> Remaining, <?php echo $limit; ?> Total</p>
 		<div class="w3-light-grey w3-round-large">
-			<div class="w3-indigo w3-round-large w3-center" style="width:<?php echo intval(($used/$limit)*100); ?>%"><?php echo intval(($used/$limit)*100); ?>%</div>
+			<div class="w3-indigo w3-round-large w3-center" style="width:<?php echo intval(($used / $limit) * 100); ?>%"><?php echo intval(($used / $limit) * 100); ?>%</div>
 		</div>
         <p>
 			<?php echo $message; ?>
@@ -166,17 +174,16 @@ html, body, h1, h2, h3, h4, h5 {font-family: "Open Sans", sans-serif}
       <div class="w3-container w3-margin w3-display-container w3-round w3-border w3-theme-border wl">
         <p><strong>Users you have not followed back</strong></p>
 		<ul class="w3-ul w3-hoverable w3-border w3-round">
-		<?php
-			// echo $json;
-			foreach ($dif1 as $d)
-			{
-			    echo "<li class=\"w3-hover-purple\" onclick=\"window.open('";
-				echo $d['html_url'];
-				echo "', '_blank')\">";
-			    echo $d['login'];
-			    echo "</li>";
-			}
-		?>
+		    <?php
+				foreach ($dif1 as $d)
+				{
+				    echo "<li class=\"w3-hover-orange\" onclick=\"window.open('";
+				    echo $d['html_url'];
+				    echo "', '_blank')\">";
+				    echo $d['login'];
+				    echo "</li>";
+				}
+			?>
 		</ul>
 		<p></p>
       </div>
@@ -191,16 +198,15 @@ html, body, h1, h2, h3, h4, h5 {font-family: "Open Sans", sans-serif}
         <p><strong>Users not following you</strong></p>
 		<ul class="w3-ul w3-hoverable w3-border w3-round">
 		    <?php
-			// echo $json;
-			foreach ($dif2 as $d)
-			{
-			    echo "<li class=\"w3-hover-orange\" onclick=\"window.open('";
-				echo $d['html_url'];
-				echo "', '_blank')\">";
-			    echo $d['login'];
-			    echo "</li>";
-			}
-		?>
+				foreach ($dif2 as $d)
+				{
+				    echo "<li class=\"w3-hover-orange\" onclick=\"window.open('";
+				    echo $d['html_url'];
+				    echo "', '_blank')\">";
+				    echo $d['login'];
+				    echo "</li>";
+				}
+			?>
 		</ul>
 		<p></p>
       </div>
