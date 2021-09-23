@@ -34,11 +34,15 @@ function getUsers($username, $type, $page)
     return $json;
 }
 
+$followers = array();
+$following = array();
+$dif1 = array();
+$dif2 = array();
+
 if ($_POST['user'])
 {
     $user = $_POST['user'];
-    $followers = array();
-    $following = array();
+    
     //$followers = json_decode(getUsers($user, "followers", 1), true);
     //$following = json_decode(getUsers($user, "following", 1), true);
 	
@@ -73,6 +77,7 @@ if ($_POST['user'])
 	$dif1 = array_diff_assoc($followers, $following);
     $dif2 = array_diff_assoc($following, $followers);
     
+	
     
 }
 ?>
@@ -119,6 +124,48 @@ html, body, h1, h2, h3, h4, h5 {font-family: "Open Sans", sans-serif}
 			Users not following you: <?php echo count($dif2); ?><br>			
 		
 		</p>
+		<div class="w3-row-padding w3-margin-bottom">
+    <div class="w3-quarter">
+      <div class="w3-container w3-red w3-padding-16">
+        <div class="w3-left"><i class="fa fa-comment w3-xxxlarge"></i></div>
+        <div class="w3-right">
+          <h3>52</h3>
+        </div>
+        <div class="w3-clear"></div>
+        <h4>Messages</h4>
+      </div>
+    </div>
+    <div class="w3-quarter">
+      <div class="w3-container w3-blue w3-padding-16">
+        <div class="w3-left"><i class="fa fa-eye w3-xxxlarge"></i></div>
+        <div class="w3-right">
+          <h3>99</h3>
+        </div>
+        <div class="w3-clear"></div>
+        <h4>Views</h4>
+      </div>
+    </div>
+    <div class="w3-quarter">
+      <div class="w3-container w3-teal w3-padding-16">
+        <div class="w3-left"><i class="fa fa-share-alt w3-xxxlarge"></i></div>
+        <div class="w3-right">
+          <h3>23</h3>
+        </div>
+        <div class="w3-clear"></div>
+        <h4>Shares</h4>
+      </div>
+    </div>
+    <div class="w3-quarter">
+      <div class="w3-container w3-orange w3-text-white w3-padding-16">
+        <div class="w3-left"><i class="fa fa-users w3-xxxlarge"></i></div>
+        <div class="w3-right">
+          <h3>50</h3>
+        </div>
+        <div class="w3-clear"></div>
+        <h4>Users</h4>
+      </div>
+    </div>
+  </div>
       </div>
     <!-- Left Column -->
     <div class="w3-round w3-col" style="width:50%">
