@@ -44,7 +44,7 @@ html, body, h1, h2, h3, h4, h5 {font-family: "Open Sans", sans-serif}
 
 <!-- Navbar -->
 <div class="w3-top">
-<form>
+<form method="POST">
  <div class="w3-bar w3-blue w3-left-align w3-large">
  
   <div class="w3-bar-item w3-padding"><input class="w3-input w3-round" type="text" placeholder="github username" required></div>
