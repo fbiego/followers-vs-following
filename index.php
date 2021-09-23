@@ -1,9 +1,9 @@
 <?php
-
-function getUsers($username, $type){
+function getUsers($username, $type)
+{
     $cURLConnection = curl_init();
 
-    curl_setopt($cURLConnection, CURLOPT_URL, 'https://api.github.com/users/'.$username.'/'.$type.'?per_page=100&page=1');
+    curl_setopt($cURLConnection, CURLOPT_URL, 'https://api.github.com/users/' . $username . '/' . $type . '?per_page=100&page=1');
     curl_setopt($cURLConnection, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($cURLConnection, CURLOPT_HTTPHEADER, array(
         'Accept: application/vnd.github.v3+json',
@@ -21,10 +21,11 @@ function getUsers($username, $type){
     return $json;
 }
 // $apiResponse - available data from the API request
-if ($_GET['user']){
-	$user = $_GET['user'];
-	$followers = getUsers($user, "followers");
-	$following = getUsers($user, "following");
+if ($_GET['user'])
+{
+    $user = $_GET['user'];
+    $followers = getUsers($user, "followers");
+    $following = getUsers($user, "following");
 }
 ?>
 
@@ -60,15 +61,16 @@ html, body, h1, h2, h3, h4, h5 {font-family: "Open Sans", sans-serif}
       <div class="w3-container w3-margin w3-display-container w3-round w3-border w3-theme-border wl">
         <p><strong>Following</strong></p>
 		<ul class="w3-ul w3-hoverable w3-border w3-round">
-		<?php 
-		$obj = json_decode($following);
-		// echo $json;
-		foreach($obj as $d){
-			echo "<li>";
-			echo $d->login;
-			echo "</li>";
-		}
-		?>
+		<?php
+$obj = json_decode($following);
+// echo $json;
+foreach ($obj as $d)
+{
+    echo "<li>";
+    echo $d->login;
+    echo "</li>";
+}
+?>
 		</ul>
 		<p></p>
       </div>
@@ -82,15 +84,16 @@ html, body, h1, h2, h3, h4, h5 {font-family: "Open Sans", sans-serif}
 	  <div class="w3-container w3-margin w3-display-container w3-round w3-border w3-theme-border wl">
         <p><strong>Followers</strong></p>
 		<ul class="w3-ul w3-hoverable w3-border w3-round">
-		    <?php 
-		$obj = json_decode($followers);
-		// echo $json;
-		foreach($obj as $d){
-			echo "<li>";
-			echo $d->login;
-			echo "</li>";
-		}
-		?>
+		    <?php
+$obj = json_decode($followers);
+// echo $json;
+foreach ($obj as $d)
+{
+    echo "<li>";
+    echo $d->login;
+    echo "</li>";
+}
+?>
 		</ul>
 		<p></p>
       </div>
@@ -109,4 +112,4 @@ html, body, h1, h2, h3, h4, h5 {font-family: "Open Sans", sans-serif}
 
 
 </body>
-</html> 
+</html>
