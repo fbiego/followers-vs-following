@@ -75,7 +75,7 @@ html, body, h1, h2, h3, h4, h5 {font-family: "Open Sans", sans-serif}
 		<div class="w3-container w3-margin w3-display-container w3-round w3-border w3-theme-border wl">
 		<p>X-RateLimit Usage: <?php echo $used; ?> Used, <?php echo ($limit-$used); ?> Remaining, <?php echo $limit; ?> Total</p>
 		<div class="w3-light-grey w3-round-large">
-			<div class="w3-blue w3-round-large w3-center" style="width:<?php echo ($used/$limit)*100; ?>%"><?php echo ($used/$limit)*100; ?>%</div>
+			<div class="w3-blue w3-round-large w3-center" style="width:<?php echo intval(($used/$limit)*100); ?>%"><?php echo intval(($used/$limit)*100); ?>%</div>
 		</div>
         <p><?php echo $message; ?></p>
       </div>
