@@ -18,7 +18,7 @@ function getUsers($username, $type, $page)
 {
     $cURLConnection = curl_init();
 
-    curl_setopt($cURLConnection, CURLOPT_URL, 'https://api.github.com/users/' . $username . '/' . $type . '?per_page=100&page=1');
+    curl_setopt($cURLConnection, CURLOPT_URL, 'https://api.github.com/users/' . $username . '/' . $type . '?per_page=100&page=' . $page);
     curl_setopt($cURLConnection, CURLOPT_RETURNTRANSFER, true);
 	curl_setopt($cURLConnection, CURLOPT_HEADERFUNCTION, "getHeaders");
     curl_setopt($cURLConnection, CURLOPT_HTTPHEADER, array(
@@ -37,10 +37,10 @@ function getUsers($username, $type, $page)
 if ($_POST['user'])
 {
     $user = $_POST['user'];
-	$max = 30;
-	while($max>0){
+	$max = 1;
+	while($max<=30){
 		
-		$max--;
+		$max++;
 	}
     $followers = getUsers($user, "followers");
     $following = getUsers($user, "following");
