@@ -1,9 +1,9 @@
 <?php
 
-function getUsers($type){
+function getUsers($username, $type){
     $cURLConnection = curl_init();
 
-    curl_setopt($cURLConnection, CURLOPT_URL, 'https://api.github.com/users/fbiego/'.$type.'?per_page=100&page=1');
+    curl_setopt($cURLConnection, CURLOPT_URL, 'https://api.github.com/users/'.$username.'/'.$type.'?per_page=100&page=1');
     curl_setopt($cURLConnection, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($cURLConnection, CURLOPT_HTTPHEADER, array(
         'Accept: application/vnd.github.v3+json',
@@ -23,8 +23,8 @@ function getUsers($type){
 // $apiResponse - available data from the API request
 if ($_GET['user']){
 	$user = $_GET['user'];
-	$followers = getUsers("followers");
-	$following = getUsers("following");
+	$followers = getUsers($user, "followers");
+	$following = getUsers($user, "following");
 }
 ?>
 
