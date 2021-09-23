@@ -70,7 +70,9 @@ html, body, h1, h2, h3, h4, h5 {font-family: "Open Sans", sans-serif}
 			// echo $json;
 			foreach ($obj as $d)
 			{
-			    echo "<li>";
+			    echo "<li onclick=\"location.href='";
+				echo $d->url;
+				echo "';\">";
 			    echo $d->login;
 			    echo "</li>";
 			}
@@ -93,7 +95,9 @@ html, body, h1, h2, h3, h4, h5 {font-family: "Open Sans", sans-serif}
 			// echo $json;
 			foreach ($obj as $d)
 			{
-			    echo "<li>";
+			    echo "<li onclick=\"location.href='";
+				echo $d->url;
+				echo "';\">";
 			    echo $d->login;
 			    echo "</li>";
 			}
