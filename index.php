@@ -1,11 +1,17 @@
 <?php
 $message = "";
+
+function getHeaders($curl, $header_line ){
+	$GLOBALS['message'] = $GLOBALS['message']. $header_line;
+	return strlen($header_line);
+}
 function getUsers($username, $type)
 {
     $cURLConnection = curl_init();
 
     curl_setopt($cURLConnection, CURLOPT_URL, 'https://api.github.com/users/' . $username . '/' . $type . '?per_page=100&page=1');
     curl_setopt($cURLConnection, CURLOPT_RETURNTRANSFER, true);
+	curl_setopt($cURLConnection, CURLOPT_HEADERFUNCTION, "getHeaders");
     curl_setopt($cURLConnection, CURLOPT_HTTPHEADER, array(
         'Accept: application/vnd.github.v3+json',
         'User-Agent: Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.82 Mobile Safari/537.36'
@@ -14,12 +20,7 @@ function getUsers($username, $type)
     $json = curl_exec($cURLConnection);
     curl_close($cURLConnection);
     $obj = json_decode($json);
-	list($headers, $content) = explode("\r\n\r\n",$json,2);
-	$GLOBALS['message'] = $obj['message'];
-	foreach (explode("\r\n",$headers) as $hdr){
-		printf('<p>Header: %s</p>', $hdr);
-		$GLOBALS['message'] = $GLOBALS['message'] . $hdr . '<br>';
-	}
+	$GLOBALS['message'] = $GLOBALS['message'].$obj['message'];
     
     return $json;
 }
