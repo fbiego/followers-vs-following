@@ -77,8 +77,6 @@ if ($_POST['user'])
 	$dif1 = array_diff_assoc($followers, $following);
     $dif2 = array_diff_assoc($following, $followers);
     
-	
-    
 }
 ?>
 
