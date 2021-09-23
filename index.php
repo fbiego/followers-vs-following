@@ -37,25 +37,37 @@ function getUsers($username, $type, $page)
 if ($_POST['user'])
 {
     $user = $_POST['user'];
+	
+	//query followers
 	$z = 1;
 	while($z<=30){
 		$list = getUsers($user, "followers", $z);
 		if (count($list) == 0){
 			break;
 		}
+		if ($message != ""){
+			break;
+		}
 		$followers = array_merge($list, $followers);		
 		$z++;
 	}
 	
+	//query following
 	$z = 1;
 	while($z<=30){
 		$list = getUsers($user, "following", $z);
 		if (count($list) == 0){
 			break;
 		}
+		if ($message != ""){
+			break;
+		}
 		$following = array_merge($list, $following);		
 		$z++;
 	}
+	
+	$dif1 = array_diff_assoc($followers, $following);
+    $dif2 = array_diff_assoc($following, $followers);
     //$followers = getUsers($user, "followers");
     //$following = getUsers($user, "following");
 }
@@ -95,7 +107,14 @@ html, body, h1, h2, h3, h4, h5 {font-family: "Open Sans", sans-serif}
 		<div class="w3-light-grey w3-round-large">
 			<div class="w3-blue w3-round-large w3-center" style="width:<?php echo intval(($used/$limit)*100); ?>%"><?php echo intval(($used/$limit)*100); ?>%</div>
 		</div>
-        <p><?php echo $message; ?></p>
+        <p>
+			<?php echo $message; ?><br>
+			Following: <?php echo count($following); ?><br>
+			Followers: <?php echo count($followers); ?><br>
+			Not following back: <?php echo count($dif1); ?><br>
+			Not following you: <?php echo count($dif2); ?><br>			
+		
+		</p>
       </div>
     <!-- Left Column -->
     <div class="w3-round w3-col" style="width:50%">
