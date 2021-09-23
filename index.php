@@ -127,40 +127,40 @@ html, body, h1, h2, h3, h4, h5 {font-family: "Open Sans", sans-serif}
       <div class="w3-container w3-red w3-padding-16">
         <div class="w3-left"><i class="fa fa-comment w3-xxxlarge"></i></div>
         <div class="w3-right">
-          <h3>52</h3>
+          <h3><?php echo count($following); ?></h3>
         </div>
         <div class="w3-clear"></div>
-        <h5>Messages</h5>
+        <h5>Following</h5>
       </div>
     </div>
     <div class="w3-quarter">
       <div class="w3-container w3-blue w3-padding-16">
         <div class="w3-left"><i class="fa fa-eye w3-xxxlarge"></i></div>
         <div class="w3-right">
-          <h3>99</h3>
+          <h3><?php echo count($followers); ?></h3>
         </div>
         <div class="w3-clear"></div>
-        <h5>Views</h5>
+        <h5>Followers</h5>
       </div>
     </div>
     <div class="w3-quarter">
       <div class="w3-container w3-teal w3-padding-16">
         <div class="w3-left"><i class="fa fa-share-alt w3-xxxlarge"></i></div>
         <div class="w3-right">
-          <h3>23</h3>
+          <h3><?php echo count($dif1); ?></h3>
         </div>
         <div class="w3-clear"></div>
-        <h5>Shares</h5>
+        <h5>Not followed back</h5>
       </div>
     </div>
     <div class="w3-quarter">
       <div class="w3-container w3-orange w3-text-white w3-padding-16">
         <div class="w3-left"><i class="fa fa-users w3-xxxlarge"></i></div>
         <div class="w3-right">
-          <h3>50</h3>
+          <h3><?php echo count($dif2); ?></h3>
         </div>
         <div class="w3-clear"></div>
-        <h5>Users</h5>
+        <h5>Not following you</h5>
       </div>
     </div>
   </div>
