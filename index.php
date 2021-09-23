@@ -182,10 +182,10 @@
 						</div>
 					</div>
 					<div class="w3-row w3-round w3-margin w3-border">
-						<?php if ($a > 0) { echo'<div class="w3-col w3-container w3-green" style="width:' . $a . '%"> <p> ' . $a . '</p></div>' ;}?>
-						<?php if ($b > 0) { echo'<div class="w3-col w3-container w3-blue" style="width:' . $b . '%"> <p> ' . $b . '</p></div>' ;}?>
-						<?php if ($c > 0) { echo'<div class="w3-col w3-container w3-purple" style="width:' . $c . '%"> <p> ' . $c . '</p></div>' ;}?>
-						<?php if ($d > 0) { echo'<div class="w3-col w3-container w3-teal" style="width:' . $d . '%"> <p> ' . $d . '</p></div>' ;}?>
+						<?php if ($a > 0) { echo'<div class="w3-col w3-container w3-green" style="width:' . $a . '%"> <p> ' . intval($a) . '%</p></div>' ;}?>
+						<?php if ($b > 0) { echo'<div class="w3-col w3-container w3-blue" style="width:' . $b . '%"> <p> ' . intval($b) . '%</p></div>' ;}?>
+						<?php if ($c > 0) { echo'<div class="w3-col w3-container w3-purple" style="width:' . $c . '%"> <p> ' . intval($c) . '%</p></div>' ;}?>
+						<?php if ($d > 0) { echo'<div class="w3-col w3-container w3-teal" style="width:' . $d . '%"> <p> ' . intval($d) . '%</p></div>' ;}?>
 					</div>
 				</div>
 				<!-- Left Column -->
