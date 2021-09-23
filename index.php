@@ -88,6 +88,20 @@
 	
 	    $dif1 = array_diff_assoc($followers, $following);
 	    $dif2 = array_diff_assoc($following, $followers);
+		
+		$k = count($following);
+		$l = count($followers);
+		$m = count($dif1);
+		$n = count($dif2);
+		
+		$total = $k + $l + $m + $n;
+		
+		if ($total > 0){
+			$a = ($k / $total) * 100;
+			$b = ($l / $total) * 100;
+			$c = ($m / $total) * 100;
+			$d = ($n / $total) * 100;
+		}
 	
 	}
 	?>
