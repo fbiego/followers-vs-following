@@ -59,6 +59,9 @@ html, body, h1, h2, h3, h4, h5 {font-family: "Open Sans", sans-serif}
 <div class="w3-content" style="max-width:1400px;margin-top:50px;margin-bottom:100px">    
   <!-- The Grid -->
   <div class="w3-row">
+		<div class="w3-container w3-margin w3-display-container w3-round w3-border w3-theme-border wl">
+        <p></p>
+      </div>
     <!-- Left Column -->
     <div class="w3-col m6 w3-round">
       <!-- Profile -->
