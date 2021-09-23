@@ -71,7 +71,7 @@ html, body, h1, h2, h3, h4, h5 {font-family: "Open Sans", sans-serif}
 			foreach ($obj as $d)
 			{
 			    echo "<li onclick=\"location.href='";
-				echo $d->url;
+				echo $d->html_url;
 				echo "';\">";
 			    echo $d->login;
 			    echo "</li>";
@@ -96,7 +96,7 @@ html, body, h1, h2, h3, h4, h5 {font-family: "Open Sans", sans-serif}
 			foreach ($obj as $d)
 			{
 			    echo "<li onclick=\"location.href='";
-				echo $d->url;
+				echo $d->html_url;
 				echo "';\">";
 			    echo $d->login;
 			    echo "</li>";
