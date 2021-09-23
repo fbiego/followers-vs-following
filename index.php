@@ -14,9 +14,13 @@ function getUsers($username, $type)
     $json = curl_exec($cURLConnection);
     curl_close($cURLConnection);
     $obj = json_decode($json);
-    // foreach($obj as $d){
-    //     $GLOBALS['message'] = $obj->message;
-    // }
+	list($headers, $content) = explode("\r\n\r\n",$json,2);
+	$GLOBALS['message'] = $obj['message'];
+	foreach (explode("\r\n",$headers) as $hdr){
+		printf('<p>Header: %s</p>', $hdr);
+		$GLOBALS['message'] = $GLOBALS['message'] . $hdr . '<br>';
+	}
+    
     return $json;
 }
 
