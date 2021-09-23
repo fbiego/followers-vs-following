@@ -41,6 +41,10 @@
 	$following = array();
 	$dif1 = array();
 	$dif2 = array();
+	$a = 25;
+	$b = 25;
+	$c = 25;
+	$d = 25;
 	
 	if ($_POST['user'])
 	{
@@ -164,17 +168,17 @@
 						</div>
 					</div>
 					<div class="w3-row w3-round w3-margin w3-border">
-						<div class="w3-col w3-container w3-green" style="width:20%">
-							<p>w3-threequarter</p>
+						<div class="w3-col w3-container w3-green" style="width:<?php echo $a; ?>%">
+							<p><?php echo intval($a); ?></p>
 						</div>
-						<div class="w3-col w3-container w3-blue" style="width:70%">
-							<p>w3-quarter</p>
+						<div class="w3-col w3-container w3-blue" style="width:<?php echo $v; ?>%">
+							<p><?php echo intval($b); ?></p>
 						</div>
-						<div class="w3-col w3-container w3-purple" style="width:70%">
-							<p>w3-quarter</p>
+						<div class="w3-col w3-container w3-purple" style="width:<?php echo $c; ?>%">
+							<p><?php echo intval($c); ?></p>
 						</div>
-						<div class="w3-col w3-container w3-orange" style="width:70%">
-							<p>w3-quarter</p>
+						<div class="w3-col w3-container w3-orange" style="width:<?php echo $d; ?>%">
+							<p><?php echo intval($d); ?></p>
 						</div>
 					</div>
 				</div>
