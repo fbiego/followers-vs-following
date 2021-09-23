@@ -21,8 +21,11 @@ function getUsers($type){
     return $json;
 }
 // $apiResponse - available data from the API request
-$followers = getUsers("followers");
-$following = getUsers("following");
+if ($_GET['user']){
+	$user = $_GET['user'];
+	$followers = getUsers("followers");
+	$following = getUsers("following");
+}
 ?>
 
 <!DOCTYPE html>
