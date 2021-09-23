@@ -167,6 +167,22 @@ html, body, h1, h2, h3, h4, h5 {font-family: "Open Sans", sans-serif}
       </div>
     </div>
   </div>
+  
+  <div class="w3-row w3-round w3-margin w3-border">
+<div class="w3-col w3-container w3-green" style="width:20%">
+  <p>w3-threequarter</p>  
+</div>
+<div class="w3-col w3-container w3-blue" style="width:70%">
+  <p>w3-quarter</p>
+</div>
+<div class="w3-col w3-container w3-purple" style="width:70%">
+  <p>w3-quarter</p>
+</div>
+<div class="w3-col w3-container w3-orange" style="width:70%">
+  <p>w3-quarter</p>
+</div>
+</div>
+
       </div>
     <!-- Left Column -->
     <div class="w3-round w3-col" style="width:50%">
