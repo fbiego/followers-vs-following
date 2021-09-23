@@ -62,15 +62,15 @@ html, body, h1, h2, h3, h4, h5 {font-family: "Open Sans", sans-serif}
         <p><strong>Following</strong></p>
 		<ul class="w3-ul w3-hoverable w3-border w3-round">
 		<?php
-$obj = json_decode($following);
-// echo $json;
-foreach ($obj as $d)
-{
-    echo "<li>";
-    echo $d->login;
-    echo "</li>";
-}
-?>
+			$obj = json_decode($following);
+			// echo $json;
+			foreach ($obj as $d)
+			{
+			    echo "<li>";
+			    echo $d->login;
+			    echo "</li>";
+			}
+		?>
 		</ul>
 		<p></p>
       </div>
@@ -85,15 +85,15 @@ foreach ($obj as $d)
         <p><strong>Followers</strong></p>
 		<ul class="w3-ul w3-hoverable w3-border w3-round">
 		    <?php
-$obj = json_decode($followers);
-// echo $json;
-foreach ($obj as $d)
-{
-    echo "<li>";
-    echo $d->login;
-    echo "</li>";
-}
-?>
+			$obj = json_decode($followers);
+			// echo $json;
+			foreach ($obj as $d)
+			{
+			    echo "<li>";
+			    echo $d->login;
+			    echo "</li>";
+			}
+		?>
 		</ul>
 		<p></p>
       </div>
