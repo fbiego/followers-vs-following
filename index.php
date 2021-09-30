@@ -232,6 +232,51 @@
 					<!-- End Left Column -->
 				</div>
 				<!-- End Grid -->
+				
+				<!-- Left Column -->
+				<div class="w3-round w3-col" style="width:50%">
+					<!-- Profile -->
+					<div class="w3-container w3-margin w3-display-container w3-round w3-border w3-theme-border wl">
+						<p><strong>Followers</strong></p>
+						<ul class="w3-ul w3-hoverable w3-border w3-round">
+							<?php
+								foreach ($followers as $d)
+								{
+								    echo "<li class=\"w3-hover-purple\" onclick=\"window.open('";
+								    echo $d['html_url'];
+								    echo "', '_blank')\">";
+								    echo $d['login'];
+								    echo "</li>";
+								}
+								?>
+						</ul>
+						<p></p>
+					</div>
+					<br>
+					<!-- End Left Column -->
+				</div>
+				<div class="w3-round w3-col" style="width:50%">
+					<!-- Profile -->
+					<div class="w3-container w3-margin w3-display-container w3-round w3-border w3-theme-border wl">
+						<p><strong>Following</strong></p>
+						<ul class="w3-ul w3-hoverable w3-border w3-round">
+							<?php
+								foreach ($following as $d)	
+								{
+								    echo "<li class=\"w3-hover-teal\" onclick=\"window.open('";
+								    echo $d['html_url'];
+								    echo "', '_blank')\">";
+								    echo $d['login'];
+								    echo "</li>";
+								}
+								?>
+						</ul>
+						<p></p>
+					</div>
+					<br>
+					<!-- End Left Column -->
+				</div>
+				<!-- End Grid -->
 			</div>
 			<!-- End Page Container -->
 		</div>
