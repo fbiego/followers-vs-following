@@ -284,4 +284,25 @@
 		</div>
 		<br>
 	</body>
+	<script>
+		function toggle(mode){
+			
+			let followers = document.querySelector('#followers');
+			let followers = document.querySelector('#following');
+			let dif1 = document.querySelector('#dif1');
+			let dif2 = document.querySelector('#dif2');
+			if (mode == "list"){
+				followers.className = "w3-round w3-col";
+				following.className = "w3-round w3-col";
+				dif1.className = "w3-round w3-col w3-hide";
+				dif2.className = "w3-round w3-col w3-hide";
+			} else {
+				followers.className = "w3-round w3-col w3-hide";
+				following.className = "w3-round w3-col w3-hide";
+				dif1.className = "w3-round w3-col";
+				dif2.className = "w3-round w3-col";
+			}
+		}
+	
+	</script>
 </html>
