@@ -86,8 +86,8 @@
 	        $z++;
 	    }
 		
-		array_multisort(array_column($followers, 'login'), SORT_DESC, $followers);
-		array_multisort(array_column($following, 'login'), SORT_DESC, $following);
+		array_multisort(array_column($followers, 'login'), SORT_ASC, $followers);
+		array_multisort(array_column($following, 'login'), SORT_ASC, $following);
 	
 	    $dif1 = array_diff_assoc($followers, $following);
 	    $dif2 = array_diff_assoc($following, $followers);
@@ -141,8 +141,6 @@
 					</div>
 					<p>
 						<?php echo $message; ?>
-						<button class="w3-button w3-green w3-round-large" onclick="toggle('list');">Show full list</button>
-						<button class="w3-button w3-purple w3-round-large" onclick="toggle('dif');">Show Difference</button>
 					</p>
 					<div class="w3-row-padding w3-margin-bottom">
 						<div class="w3-quarter">
@@ -191,6 +189,11 @@
 						<?php if ($b > 0) { echo'<div class="w3-col w3-container w3-blue" style="width:' . $b . '%"> <p> ' . intval($b) . '%</p></div>' ;}?>
 						<?php if ($c > 0) { echo'<div class="w3-col w3-container w3-purple" style="width:' . $c . '%"> <p> ' . intval($c) . '%</p></div>' ;}?>
 						<?php if ($d > 0) { echo'<div class="w3-col w3-container w3-teal" style="width:' . $d . '%"> <p> ' . intval($d) . '%</p></div>' ;}?>
+					</div>
+					
+					<div class="w3-row w3-round w3-margin w3-border">
+						<button class="w3-button w3-green w3-round-large" onclick="toggle('list');">Show full list</button>
+						<button class="w3-button w3-purple w3-round-large" onclick="toggle('dif');">Show Difference</button>
 					</div>
 				</div>
 				<!-- Left Column -->
