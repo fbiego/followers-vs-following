@@ -65,7 +65,11 @@
 	        {
 	            break;
 	        }
-	        $followers = array_merge($list, $followers);
+	        //$followers = array_merge($list, $followers);
+			
+			foreach ($list as $lg){
+				array_push($followers, $lg['login'];
+			}
 	        $z++;
 	    }
 	
@@ -82,15 +86,19 @@
 	        {
 	            break;
 	        }
-	        $following = array_merge($list, $following);
+	        //$following = array_merge($list, $following);
+			
+			foreach ($list as $lg){
+				array_push($following, $lg['login'];
+			}
 	        $z++;
 	    }
 		
-		array_multisort(array_column($followers, 'login'), SORT_ASC, $followers);
-		array_multisort(array_column($following, 'login'), SORT_ASC, $following);
+		//array_multisort(array_column($followers, 'login'), SORT_ASC, $followers);
+		//array_multisort(array_column($following, 'login'), SORT_ASC, $following);
 	
-	    $dif1 = array_diff_assoc($followers, $following);
-	    $dif2 = array_diff_assoc($following, $followers);
+	    $dif1 = array_diff($followers, $following);
+	    $dif2 = array_diff($following, $followers);
 		
 		$k = count($following);
 		$l = count($followers);
@@ -208,7 +216,7 @@
 								    echo "<li class=\"w3-hover-purple\" onclick=\"window.open('";
 								    echo $d['html_url'];
 								    echo "', '_blank')\">";
-								    echo $d['login'];
+								    echo $d;
 								    echo "</li>";
 								}
 								?>
