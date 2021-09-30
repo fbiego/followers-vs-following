@@ -234,7 +234,7 @@
 				<!-- End Grid -->
 				
 				<!-- Left Column -->
-				<div class="w3-round w3-col" id="followers" style="width:50%">
+				<div class="w3-round w3-col w3-hide" id="followers" style="width:50%">
 					<!-- Profile -->
 					<div class="w3-container w3-margin w3-display-container w3-round w3-border w3-theme-border wl">
 						<p><strong>Followers</strong></p>
