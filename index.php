@@ -138,8 +138,8 @@
 					</div>
 					<p>
 						<?php echo $message; ?>
-						<button class="w3-button w3-green w3-round-large">Show full list</button>
-						<button class="w3-button w3-purple w3-round-large">Show Difference</button>
+						<button class="w3-button w3-green w3-round-large" onclick="toggle('list');">Show full list</button>
+						<button class="w3-button w3-purple w3-round-large" onclick="toggle('dif');">Show Difference</button>
 					</p>
 					<div class="w3-row-padding w3-margin-bottom">
 						<div class="w3-quarter">
