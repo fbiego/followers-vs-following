@@ -283,26 +283,28 @@
 			<!-- End Page Container -->
 		</div>
 		<br>
-	</body>
-	<script>
+		
+		<script>
 		function toggle(mode){
 			
-			let followers = document.querySelector('#followers');
-			let followers = document.querySelector('#following');
-			let dif1 = document.querySelector('#dif1');
-			let dif2 = document.querySelector('#dif2');
+			let f1= document.querySelector('#followers');
+			let f2 = document.querySelector('#following');
+			let d1 = document.querySelector('#dif1');
+			let d2 = document.querySelector('#dif2');
 			if (mode == "list"){
-				followers.className = "w3-round w3-col";
-				following.className = "w3-round w3-col";
-				dif1.className = "w3-round w3-col w3-hide";
-				dif2.className = "w3-round w3-col w3-hide";
+				f1.className = "w3-round w3-col";
+				f2.className = "w3-round w3-col";
+				d1.className = "w3-round w3-col w3-hide";
+				d2.className = "w3-round w3-col w3-hide";
 			} else {
-				followers.className = "w3-round w3-col w3-hide";
-				following.className = "w3-round w3-col w3-hide";
-				dif1.className = "w3-round w3-col";
-				dif2.className = "w3-round w3-col";
+				f1.className = "w3-round w3-col w3-hide";
+				f2.className = "w3-round w3-col w3-hide";
+				d1.className = "w3-round w3-col";
+				d2.className = "w3-round w3-col";
 			}
 		}
 	
-	</script>
+		</script>
+	</body>
+
 </html>
