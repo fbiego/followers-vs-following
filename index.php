@@ -85,6 +85,9 @@
 	        $following = array_merge($list, $following);
 	        $z++;
 	    }
+		
+		array_multisort(array_column($followers, 'login'), SORT_DESC, $followers);
+		array_multisort(array_column($following, 'login'), SORT_DESC, $following);
 	
 	    $dif1 = array_diff_assoc($followers, $following);
 	    $dif2 = array_diff_assoc($following, $followers);
