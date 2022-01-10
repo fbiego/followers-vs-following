@@ -38,9 +38,11 @@
 	}
 	
 	$followers = array();
+	$Followers = [];
+	$Following = [];
 	$following = array();
-	$dif1 = array();
-	$dif2 = array();
+	$dif1 = [];
+	$dif2 = [];
 	$a = 25;
 	$b = 25;
 	$c = 25;
@@ -89,12 +91,24 @@
 	        $following = array_merge($list, $following);
 	        $z++;
 	    }
+	    
+	    foreach($followers as $fl){
+	        $Followers[$fl['login']] = $fl['html_url'];
+	    }
 		
-		array_multisort(array_column($followers, 'login'), SORT_ASC, $followers);
-		array_multisort(array_column($following, 'login'), SORT_ASC, $following);
-	
-	    $dif1 = array_diff_assoc($followers, $following);
-	    $dif2 = array_diff_assoc($following, $followers);
+		foreach($following as $fl){
+	        $Following[$fl['login']] = $fl['html_url'];
+	        if(!array_key_exists($fl['login'], $Followers)){
+	            $dif1[$fl['login']] = $fl['html_url'];
+	            echo $fl['login'];
+	        }
+	    }
+	    foreach($followers as $fl){
+	        if(!array_key_exists($fl['login'], $Following)){
+	            $dif2[$fl['login']] = $fl['html_url'];
+	        }
+	    }
+	    
 		
 		$k = count($following);
 		$l = count($followers);
@@ -207,12 +221,12 @@
 						<p><strong>Users you have not followed back</strong></p>
 						<ul class="w3-ul w3-hoverable w3-border w3-round">
 							<?php
-								foreach ($dif1 as $d)
+								foreach ($dif1 as $d => $l)
 								{
 								    echo "<li class=\"w3-hover-purple\" onclick=\"window.open('";
-								    echo $d['html_url'];
+								    echo $l;
 								    echo "', '_blank')\">";
-								    echo $d['login'];
+								    echo $d;
 								    echo "</li>";
 								}
 								?>
@@ -228,12 +242,12 @@
 						<p><strong>Users not following you</strong></p>
 						<ul class="w3-ul w3-hoverable w3-border w3-round">
 							<?php
-								foreach ($dif2 as $d)	
+								foreach ($dif2 as $d => $l)	
 								{
 								    echo "<li class=\"w3-hover-teal\" onclick=\"window.open('";
-								    echo $d['html_url'];
+								    echo $l;
 								    echo "', '_blank')\">";
-								    echo $d['login'];
+								    echo $d;
 								    echo "</li>";
 								}
 								?>
