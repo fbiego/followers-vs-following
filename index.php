@@ -271,7 +271,12 @@
 							<?php
 								foreach ($followers as $d)
 								{
-								    echo "<li class=\"w3-hover-purple\" onclick=\"window.open('";
+									if(!array_key_exists($d['login'], $Followers)){
+										echo "<li class=\"w3-purple w3-hover-grey\" onclick=\"window.open('";
+									} else {
+										echo "<li class=\"w3-hover-purple\" onclick=\"window.open('";
+									}
+								    
 								    echo $d['html_url'];
 								    echo "', '_blank')\">";
 								    echo $d['login'];
@@ -292,7 +297,12 @@
 							<?php
 								foreach ($following as $d)	
 								{
-								    echo "<li class=\"w3-hover-teal\" onclick=\"window.open('";
+									if(!array_key_exists($d['login'], $Following)){
+										echo "<li class=\"w3-teal w3-hover-grey\" onclick=\"window.open('";
+									} else {
+										echo "<li class=\"w3-hover-teal\" onclick=\"window.open('";
+									}
+								    
 								    echo $d['html_url'];
 								    echo "', '_blank')\">";
 								    echo $d['login'];
