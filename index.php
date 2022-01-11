@@ -99,13 +99,13 @@
 		foreach($following as $fl){
 	        $Following[$fl['login']] = $fl['html_url'];
 	        if(!array_key_exists($fl['login'], $Followers)){
-	            $dif1[$fl['login']] = $fl['html_url'];
+	            $dif2[$fl['login']] = $fl['html_url'];
 	            echo $fl['login'];
 	        }
 	    }
 	    foreach($followers as $fl){
 	        if(!array_key_exists($fl['login'], $Following)){
-	            $dif2[$fl['login']] = $fl['html_url'];
+	            $dif1[$fl['login']] = $fl['html_url'];
 	        }
 	    }
 	    
