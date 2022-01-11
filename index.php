@@ -271,7 +271,7 @@
 							<?php
 								foreach ($followers as $d)
 								{
-									if(array_key_exists($d['login'], $Followers)){
+									if(array_key_exists($d['login'], $dif1)){
 										echo "<li class=\"w3-purple w3-hover-grey\" onclick=\"window.open('";
 									} else {
 										echo "<li class=\"w3-hover-purple\" onclick=\"window.open('";
@@ -297,7 +297,7 @@
 							<?php
 								foreach ($following as $d)	
 								{
-									if(!array_key_exists($d['login'], $Following)){
+									if(array_key_exists($d['login'], $dif2)){
 										echo "<li class=\"w3-teal w3-hover-grey\" onclick=\"window.open('";
 									} else {
 										echo "<li class=\"w3-hover-teal\" onclick=\"window.open('";
