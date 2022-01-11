@@ -92,8 +92,8 @@
 	        $z++;
 	    }
 		
-		array_multisort(array_column($followers, 'login'), SORT_DESC, $followers);
-		array_multisort(array_column($following, 'login'), SORT_DESC, $following);
+		array_multisort(array_column($followers, 'login'), SORT_ASC, $followers);
+		array_multisort(array_column($following, 'login'), SORT_ASC, $following);
 	    
 	    foreach($followers as $fl){
 	        $Followers[$fl['login']] = $fl['html_url'];
